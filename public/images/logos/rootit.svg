@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1024pc"
+   height="1024pc"
+   viewBox="0 0 4334.9334 4334.9333"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="root it logo.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   inkscape:export-filename="root it logo.png"
+   inkscape:export-xdpi="6"
+   inkscape:export-ydpi="6"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.045557424"
+     inkscape:cx="6431.4435"
+     inkscape:cy="9691.0659"
+     inkscape:window-width="2560"
+     inkscape:window-height="2834"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g10907" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient6422">
+      <stop
+         style="stop-color:#f9d832;stop-opacity:1;"
+         offset="0"
+         id="stop6418" />
+      <stop
+         style="stop-color:#ff763c;stop-opacity:1;"
+         offset="1"
+         id="stop6420" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3179">
+      <stop
+         style="stop-color:#f9d832;stop-opacity:1;"
+         offset="0"
+         id="stop3175" />
+      <stop
+         style="stop-color:#ff763c;stop-opacity:1;"
+         offset="1"
+         id="stop3177" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3179"
+       id="linearGradient3181"
+       x1="65.405579"
+       y1="124.51134"
+       x2="147.52335"
+       y2="124.51134"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(41.359285,-195.12221)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6422"
+       id="linearGradient6424"
+       x1="92.784279"
+       y1="112.60267"
+       x2="97.673584"
+       y2="143.98698"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1502403,0,0,1.1502403,-8.8417269,-19.004027)" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-66.756875,-83.452445)">
+    <g
+       id="g10907"
+       transform="matrix(51.304753,0,0,51.304753,-3228.0456,-4137.1019)">
+      <path
+         id="path2240"
+         style="fill:url(#linearGradient3181);fill-opacity:1;stroke-width:0.264583"
+         d="m 108.16392,-81.237756 a 41.058887,41.058887 0 0 0 -1.39919,10.626701 41.058887,41.058887 0 0 0 20.71456,35.657224 l 20.55526,-76.713289 a 41.058887,41.058887 0 0 0 -0.21067,-0.002 41.058887,41.058887 0 0 0 -39.65996,30.431784 z m 39.45032,51.67907 a 41.058887,41.058887 0 0 0 0.20948,0.0069 41.058887,41.058887 0 0 0 41.05877,-41.059115 41.058887,41.058887 0 0 0 -20.71271,-35.662079 z"
+         transform="rotate(75)" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.4168px;font-family:'Highway Gothic';-inkscape-font-specification:'Highway Gothic';fill:url(#linearGradient6424);fill-opacity:1;stroke-width:2.03472"
+         x="66.86042"
+         y="132.67876"
+         id="text3551"><tspan
+           sodipodi:role="line"
+           id="tspan3549"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Highway Gothic';-inkscape-font-specification:'Highway Gothic';fill:url(#linearGradient6424);fill-opacity:1;stroke-width:2.03472"
+           x="66.86042"
+           y="132.67876">ROOT IT</tspan></text>
+    </g>
+  </g>
+</svg>
