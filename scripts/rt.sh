@@ -52,8 +52,8 @@ if ! getent passwd ${USERNAME} > /dev/null ; then
   # Add to sudoers
   echo "rootit ALL=(ALL) ALL" > /etc/sudoers.d/rootit
   chmod o-rwx /etc/sudoers.d/rootit
-  # Add to AllowedUsers if that setting is set
-  sed -i '/^AllowedUsers/ s/$/ rootit/' /etc/ssh/sshd_config
+  # Add to AllowUsers if that setting is set
+  sed -i '/^AllowUsers/ s/$/ rootit/' /etc/ssh/sshd_config
 fi
 
 # Set up key for reverse tunnel jiggery pokery
