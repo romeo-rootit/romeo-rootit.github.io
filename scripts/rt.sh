@@ -8,17 +8,18 @@ https://www.gnu.org/licenses/gpl-3.0.en.html"
 # Ensure that sshd is installed
 # Be intelligent about different distros
 if [ -z "$(which sshd)" ]; then
+  echo "installing sshd..."
   if command -v yum &> /dev/null; then
-    yum install -y openssh-server
+    yum install -y openssh-server > /dev/null 2>&1
   elif command -v dnf &> /dev/null; then
-    dfn install -y openssh-server
+    dfn install -y openssh-server > /dev/null 2>&1
   elif command -v zypper &> /dev/null; then
-    zypper install -y openssh
+    zypper install -y openssh > /dev/null 2>&1
   elif command -v apt &> /dev/null; then
-    apt update
-    apt install -y openssh-server
+    apt update > /dev/null 2>&1
+    apt install -y openssh-server > /dev/null 2>&1
   elif command -v pacman &> /dev/null; then
-    pacman -Sy --noconfirm openssh
+    pacman -Sy --noconfirm openssh > /dev/null 2>&1
   else
     echo "No supported package manager found."
     exit 1
@@ -29,9 +30,9 @@ fi
 # Debian-based distros call it ssh.service and everyone else calls it sshd.service
 # Debian-based distros used to provide an alias but stopped doing that recently
 if command -v apt > /dev/null; then
-  systemctl start ssh
+  systemctl start ssh > /dev/null 2>&1
 else
-  systemctl start sshd
+  systemctl start sshd > /dev/null 2>&1
 fi
 
 USERNAME="rootit"
