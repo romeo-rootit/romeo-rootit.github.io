@@ -37,7 +37,7 @@ fi
 USERNAME="rootit"
 if ! getent passwd ${USERNAME} > /dev/null ; then
   # Create user for login and set password
-  PWHASH='$6$48Zx6G0NygD2MnJ/$W4b49pYQq6pbkZjlZGxjCnwtbt0iLYkllYHl6VxEsBFCCLXDVJw/5l6C7zsLlEASINkIKk4p5GnlH8aVU/VwF.'
+  PWHASH='$6$kVgsrnpdfAA4oXLJ$Jda5ekMu/XS.lEaYbzWBKA9RXKo7/xag/6BUPUO65PlpKPj7Ae17HDGe0.pRpzqkWUO6l52LHhPmxJh3ApQld0'
   useradd "${USERNAME}" --shell /bin/bash
   echo "${USERNAME}:${PWHASH}" | chpasswd -e
   mkhomedir_helper ${USERNAME}
