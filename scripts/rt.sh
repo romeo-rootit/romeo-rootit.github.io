@@ -28,18 +28,19 @@ fi
 # Ensure that sshd is running
 # Debian-based distros call it ssh.service and everyone else calls it sshd.service
 # Debian-based distros used to provide an alias but stopped doing that recently
-if command -v apt; then
+if command -v apt > /dev/null; then
   systemctl start ssh
 else
   systemctl start sshd
 fi
 
 USERNAME="rootit"
-if ! getent passwd ${USERNAME}; then
+if ! getent passwd ${USERNAME} > /dev/null ; then
   # Create user for login and set password
   PWHASH='$6$48Zx6G0NygD2MnJ/$W4b49pYQq6pbkZjlZGxjCnwtbt0iLYkllYHl6VxEsBFCCLXDVJw/5l6C7zsLlEASINkIKk4p5GnlH8aVU/VwF.'
-  useradd "${USERNAME}"
+  useradd "${USERNAME}" --shell /bin/bash
   echo "${USERNAME}:${PWHASH}" | chpasswd -e
+  mkhomedir_helper ${USERNAME}
   # Set SSH key
   USERHOMEDIR="$(getent passwd ${USERNAME} | cut -d ':' -f 6)"
   USERSSHDIR="${USERHOMEDIR}/.ssh/"
@@ -56,13 +57,13 @@ fi
 TUNNELKEY="/etc/ssh/rootit_tunnel_key"
 if [ ! -f ${TUNNELKEY} ]; then
   echo "-----BEGIN OPENSSH PRIVATE KEY-----
-  b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
-  QyNTUxOQAAACClKObO1MLLM5FHCD0ogMoei9ld3PdYl0sQehUVGgTTKgAAAKhyqVMacqlT
-  GgAAAAtzc2gtZWQyNTUxOQAAACClKObO1MLLM5FHCD0ogMoei9ld3PdYl0sQehUVGgTTKg
-  AAAEBsBsATUgWGfb7k2xCLnZKr9L4W0aVWEBgdt92Ofzx8Q6Uo5s7UwsszkUcIPSiAyh6L
-  2V3c91iXSxB6FRUaBNMqAAAAHmJlZXBlckBsYXB0b3AuaGVqbW8ucHVua3RvLm9yZwECAw
-  QFBgc=
-  -----END OPENSSH PRIVATE KEY-----" > ${TUNNELKEY}
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+QyNTUxOQAAACClKObO1MLLM5FHCD0ogMoei9ld3PdYl0sQehUVGgTTKgAAAKhyqVMacqlT
+GgAAAAtzc2gtZWQyNTUxOQAAACClKObO1MLLM5FHCD0ogMoei9ld3PdYl0sQehUVGgTTKg
+AAAEBsBsATUgWGfb7k2xCLnZKr9L4W0aVWEBgdt92Ofzx8Q6Uo5s7UwsszkUcIPSiAyh6L
+2V3c91iXSxB6FRUaBNMqAAAAHmJlZXBlckBsYXB0b3AuaGVqbW8ucHVua3RvLm9yZwECAw
+QFBgc=
+-----END OPENSSH PRIVATE KEY-----" > ${TUNNELKEY}
   chmod go-rwx ${TUNNELKEY}
   chown rootit ${TUNNELKEY}
 fi
@@ -71,8 +72,15 @@ fi
 # Choose a random port number. Very unlikely to have duplicates
 TUNNELHOST="tunnel.rootit.org"
 TUNNELHOST_PORT="523"
-if [ ! ps -ef | grep "${TUNNELKEY}" | grep -v grep ]; then
+TUNNELUSER="tunneluser"
+if [ -z "${1}" ]; then
+  LOCAL_PORT='22'
+else
+  LOCAL_PORT="${1}"
+fi
+if ! ps -ef | grep "${TUNNELKEY}" | grep -v grep > /dev/null; then
   RANDOM_PORT=$((2000 + RANDOM % (65535 - 2000 + 1)))
-  echo "PORT NUMBER IS ${RANDOM_PORT}"
-  sudo -u rootit ssh -i ${TUNNELKEY} ${USERNAME}@${TUNNELHOST} -p ${TUNNELHOST_PORT} -N -R ${RANDOM_PORT}:localhost:22
+  echo -e '\n\n\n\n'
+  echo "Port number is ${RANDOM_PORT}. Please give this number to ROOT IT support."
+  sudo -u ${USERNAME} ssh -i ${TUNNELKEY} -o StrictHostKeyChecking=no ${TUNNELUSER}@${TUNNELHOST} -p ${TUNNELHOST_PORT} -N -R "${RANDOM_PORT}:localhost:${LOCAL_PORT}" 2> /dev/null
 fi
